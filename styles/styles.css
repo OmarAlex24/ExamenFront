@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;700&display=swap");
+
+:root {
+  --clr-title: #232c50;
+  --clr-title-white: #ffffff;
+  --clr-text: #b3b2b7;
+  --clr-text-white: #ffffff;
+
+  --fs-title: 4.6rem;
+  --fs-subtitle: 3.6rem;
+  --fs-text: 1.6rem;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body,
+body * {
+  margin: 0;
+  font-family: "Be Vietnam Pro", sans-serif;
+}
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Mobile first */
+@media (max-width: 860px) {
+  body {
+    padding: 40px;
+  }
+}
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Main */
+.padel-wrapper {
+  text-align: right;
+}
+.img-padel {
+  margin: 80px 0;
+}
+.padel-wrapper h1 {
+  font-size: var(--fs-title);
+  color: var(--clr-title);
+  font-weight: bold;
+}
+.padel-wrapper p {
+  font-size: var(--fs-text);
+  color: var();
+}
