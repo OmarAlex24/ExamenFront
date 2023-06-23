@@ -1,18 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap");
 
 :root {
   --clr-title: #232c50;
   --clr-title-white: #ffffff;
-  --clr-text: #b3b2b7;
+  --clr-text: rgba(140, 140, 148, 1);
   --clr-text-white: #ffffff;
 
   --fs-title: 4.6rem;
   --fs-subtitle: 3.6rem;
   --fs-text: 1.6rem;
 
-  --clr-accent: #8b48bf;
-  --clr-accent-lp: #decded;
-  --clr-accent-blue: #3cddf3;
+  --clr-accent: rgba(139, 72, 191, 1);
+  --clr-accent-lp: rgba(139, 72, 191, 0.3);
+  --clr-accent-blue: rgba(60, 221, 243, 1);
+  --clr-bg-cards: rgba(250, 250, 250, 1);
 }
 html {
   box-sizing: border-box;
@@ -45,14 +46,22 @@ p {
   font-size: var(--fs-text);
   font-weight: lighter;
 }
-/* Mobile first */
-@media (max-width: 860px) {
-  header,
-  .padel-wrapper {
-    padding: 0 4rem;
-  }
+a {
+  text-decoration: none;
+  color: #ffffff;
 }
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/* Mobile first */
 /* Header */
+header,
+.padel-wrapper {
+  padding: 0 4rem;
+}
 header {
   display: flex;
   justify-content: space-between;
@@ -60,27 +69,38 @@ header {
 
   margin-top: 5rem;
 }
+header > svg {
+  color: rgba(35, 44, 80, 1);
+}
 
 /* Main */
-main > section {
+main > section:not(:last-child) {
   margin-bottom: 6rem;
 }
 
 .padel-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: right;
 }
+.padel-wrapper > button {
+  align-self: flex-end;
+}
 .img-padel {
-  margin: 80px 0;
+  align-self: center;
+  margin: 8rem 0;
 }
 .padel-wrapper p {
   font-size: var(--fs-text);
   font-weight: lighter;
   color: var();
-  margin: 25px 0;
+  margin: 2.5rem 0;
 }
 button {
-  padding: 12px 40px;
-  border-radius: 40px;
+  padding: 1.2rem 5.5rem;
+  border-radius: 4rem;
   border: none;
   color: var(--clr-text-white);
   background-color: var(--clr-accent);
@@ -111,6 +131,9 @@ main section:nth-child(2) {
   counter-increment: item;
   display: flex;
   align-items: center;
+
+  margin-left: 3.4rem;
+  font-weight: 700;
 }
 
 .list-wrapper li::before {
@@ -132,12 +155,144 @@ main section:nth-child(2) {
   width: 100%;
   padding: 1rem 8rem;
   font-size: var(--fs-text);
-  font-weight: normal;
 }
 .list-wrapper > p {
-  padding: 0 3rem 0 1rem;
+  padding: 0 2.8rem 0 4.4rem;
   color: var(--clr-text);
 }
 .list-wrapper > * {
   margin-bottom: 20px;
+}
+/* Best of the month */
+
+.best-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  gap: 4.5rem;
+}
+.best-wrapper h2 {
+  margin-bottom: 2.5rem;
+}
+.players {
+  width: 90%;
+}
+.players-photo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  width: 100%;
+  background: linear-gradient(180deg, #ffffff 50%, var(--clr-bg-cards) 50%);
+}
+.players-photo > img {
+  position: relative;
+}
+.players-info {
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--clr-bg-cards);
+  padding: 20px 25px;
+
+  text-align: center;
+  line-height: 1.6;
+  gap: 10px;
+}
+.players-info > h3 {
+  font-size: var(--fs-text);
+  color: var(--clr-title);
+  font-weight: 700;
+}
+.players-info > p {
+  font-weight: 500;
+  color: var(--clr-text);
+}
+
+main section:last-child {
+  background: var(--clr-accent-blue);
+  color: var(--clr-text-white);
+  text-align: center;
+
+  min-height: 50svh;
+  padding: 0 8rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4rem;
+}
+main section:last-child > button {
+  background-color: #232851;
+  padding: 1.2rem 4rem;
+}
+
+/* Footer */
+footer {
+  background-color: #1e1e26;
+
+  padding: 50px 35px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+footer > *:not(:last-child) {
+  margin-bottom: 5rem;
+}
+.inbox {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+  width: 90%;
+}
+
+.inbox > button {
+  padding: 1.5rem 2.5rem;
+}
+.inbox > input {
+  padding: 1.8rem 1.25rem;
+  border-radius: 4rem;
+  width: 100%;
+  color: var(--clr-text);
+}
+
+footer > ul {
+  display: grid;
+  place-items: center start;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem 8rem;
+
+  font-size: var(--fs-text);
+  font-weight: 400;
+}
+
+.social-media {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 7rem;
+  font-size: 2.2rem;
+}
+footer > svg {
+  color: white;
+}
+footer h6 {
+  color: var(--clr-text);
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+@media (min-width: 1080px) {
+  header,
+  .padel-wrapper {
+    padding: 7.55rem 16.5rem;
+  }
+  .hamburger-nav {
+    display: none;
+  }
 }
