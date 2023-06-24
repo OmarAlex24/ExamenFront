@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap");
 
 :root {
-  --clr-title: #232c50;
+  --clr-title: rgba(36, 46, 82, 1);
   --clr-title-white: #ffffff;
   --clr-text: rgba(140, 140, 148, 1);
   --clr-text-white: #ffffff;
@@ -29,6 +29,7 @@ body,
 body * {
   margin: 0;
   font-family: "Be Vietnam Pro", sans-serif;
+  transition: background-color 0.3s ease;
 }
 img,
 svg {
@@ -74,9 +75,6 @@ header > svg {
 }
 
 /* Main */
-main > section:not(:last-child) {
-  margin-bottom: 6rem;
-}
 
 .padel-wrapper {
   display: flex;
@@ -85,40 +83,49 @@ main > section:not(:last-child) {
   justify-content: center;
   text-align: right;
 }
-.padel-wrapper > button {
+.padel-wrapper > .padel-info > button {
   align-self: flex-end;
 }
 .img-padel {
   align-self: center;
-  margin: 8rem 0;
+  margin: 6.4rem 0 10rem 0;
 }
 .padel-wrapper p {
   font-size: var(--fs-text);
   font-weight: lighter;
-  color: var();
-  margin: 2.5rem 0;
+  color: rgba(0, 0, 0, 1);
+  margin: 2.8rem 0;
 }
 button {
-  padding: 1.2rem 5.5rem;
-  border-radius: 4rem;
+  width: 13.4rem;
+  padding: 1.2rem 0;
+  border-radius: 5rem;
   border: none;
   color: var(--clr-text-white);
   background-color: var(--clr-accent);
   font-weight: lighter;
 }
+button:hover {
+  cursor: pointer;
+  background-color: rgba(139, 72, 191, 0.7);
+}
 /* 2nd Section  */
-main section:nth-child(2) {
+main .pros-section {
   background-color: var(--clr-accent-blue);
   color: var(--clr-text-white);
-  min-height: 40svh;
+
   padding: 4rem 4.6rem 4rem 2rem;
 
   display: flex;
   flex-direction: column;
-
   gap: 55px;
+
+  margin-top: 4rem;
 }
 /* 3rd Section */
+.list-section {
+  padding-top: 6.5rem;
+}
 .list-wrapper {
   max-width: 100%;
 
@@ -126,11 +133,17 @@ main section:nth-child(2) {
   counter-reset: item;
 
   font-size: var(--fs-text);
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 .list-wrapper li {
   counter-increment: item;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 2.1rem;
 
   margin-left: 3.4rem;
   font-weight: 700;
@@ -142,9 +155,10 @@ main section:nth-child(2) {
   color: var(--clr-text-white);
   padding: 1rem 2.5rem;
 
-  border-radius: 2.5rem;
+  border-radius: 3rem;
 
   position: absolute;
+  align-self: flex-start;
 }
 .list-wrapper li h3 {
   color: var(--clr-title);
@@ -156,8 +170,8 @@ main section:nth-child(2) {
   padding: 1rem 8rem;
   font-size: var(--fs-text);
 }
-.list-wrapper > p {
-  padding: 0 2.8rem 0 4.4rem;
+.list-wrapper > li > p {
+  margin: 0 2rem 0 1rem;
   color: var(--clr-text);
 }
 .list-wrapper > * {
@@ -169,12 +183,19 @@ main section:nth-child(2) {
   display: flex;
   justify-content: center;
   align-items: center;
+
   flex-direction: column;
 
   gap: 4.5rem;
+
+  padding: 5.8rem 0;
 }
 .best-wrapper h2 {
   margin-bottom: 2.5rem;
+}
+.players-wrapper {
+  display: grid;
+  place-items: center;
 }
 .players {
   width: 90%;
@@ -227,7 +248,6 @@ main section:last-child {
 }
 main section:last-child > button {
   background-color: #232851;
-  padding: 1.2rem 4rem;
 }
 
 /* Footer */
@@ -253,7 +273,8 @@ footer > *:not(:last-child) {
 }
 
 .inbox > button {
-  padding: 1.5rem 2.5rem;
+  padding: 1.15rem 0;
+  width: 10rem;
 }
 .inbox > input {
   padding: 1.8rem 1.25rem;
@@ -287,12 +308,119 @@ footer h6 {
   font-size: 1.25rem;
   font-weight: 500;
 }
+
+/* Desktop */
+nav > .nav-desktop {
+  display: none;
+  gap: 2.6rem;
+}
+nav > .nav-desktop a {
+  color: var(--clr-title);
+  font-weight: 500;
+  font-size: var(--fs-text);
+
+  transition: color 0.3s ease;
+}
+nav > .nav-desktop a:hover {
+  color: rgba(36, 46, 82, 0.6);
+}
+header > button {
+  display: none;
+  box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.25);
+  padding: 1.25rem 4rem;
+}
+@media (max-width: 1080px) {
+  .players-wrapper .players:nth-child(odd) {
+    display: none;
+  }
+}
 @media (min-width: 1080px) {
   header,
   .padel-wrapper {
-    padding: 7.55rem 16.5rem;
+    margin: 5rem 11%;
+    padding: 0;
   }
+
+  /* Header */
   .hamburger-nav {
     display: none;
+  }
+
+  nav > .nav-desktop,
+  header > button {
+    display: flex;
+  }
+
+  /* Main */
+  .padel-wrapper {
+    flex-direction: row;
+    gap: 10rem;
+  }
+  main .pros-section {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--clr-accent);
+
+    padding: 4rem 22rem;
+  }
+  main .pros-section > p {
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas aliquet consequat purus sit amet sodales. In faucibus ut nisi eu dignissim. Vestibulum fringilla velit sed tincidunt tincidunt.";
+    max-width: 45rem;
+  }
+
+  main .list-section {
+    background-color: rgba(250, 250, 250, 1);
+  }
+
+  .list-wrapper {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 4rem 15.3rem;
+
+    gap: 3rem 5rem;
+  }
+  .list-wrapper li {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+
+    max-width: calc(44rem + 10rem);
+    margin: 0;
+
+    gap: 1rem 2.3rem;
+
+    color: var(--clr-text);
+  }
+
+  .list-wrapper li::before {
+    position: static;
+    grid-column: 1;
+  }
+  .list-wrapper li h3 {
+    background-color: inherit;
+    padding: 0;
+    color: var(--clr-title);
+  }
+  .list-wrapper li:nth-child(3) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  .list-wrapper li p {
+    grid-column: 2;
+  }
+
+  .best-wrapper {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+  }
+  .players-wrapper {
+    display: flex;
+    padding: 0 7rem;
+  }
+  main section:last-child {
+    flex-direction: row;
   }
 }
